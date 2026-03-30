@@ -24,14 +24,9 @@ class ElementsPage {
   }
 
   deleteRecord(firstName) {
-    // cy.get("body").then(($body) => {
-    //   if ($body.find(`td:contains("${firstName}")`).length === 0) {
-    //     cy.get('[title="Delete"]').click();
-    //   }
       cy.contains("td", firstName)
         .parent()
         .within(() => cy.get('[title="Delete"]').click({ force: true }))
-    // });
   }
 
   showMoreItems() {
