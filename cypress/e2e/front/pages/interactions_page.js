@@ -6,6 +6,7 @@ class InteractionsPage {
     cy.visit("/sortable")
   }
 
+  // Revisar
   sortAscending() {
     this.expectedOrder.forEach((itemText, targetIdx) => {
       cy.get(this.selector).then(($items) => {

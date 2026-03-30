@@ -7,7 +7,7 @@ class WidgetsPage {
     cy.get("#startStopButton").click();
   }
 
-  // Aguarda a progress bar atingir um valor e clica Stop
+  //revisar
   stopBefore(maxValue) {
     const checkAndStop = () => {
       cy.get('[role="progressbar"]').invoke("attr", "aria-valuenow").then((val) => {
