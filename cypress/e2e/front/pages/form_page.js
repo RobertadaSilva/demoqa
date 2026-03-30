@@ -49,7 +49,6 @@ class FormPage {
     cy.get('#example-modal-sizes-title-lg').should('have.text', 'Thanks for submitting the form')
   }
 
-  // Fecha o popup removendo o modal via JavaScript
   closePopup() {
     cy.get('.modal-backdrop').click({ force: true })
     cy.get('.modal-dialog').should('not.exist')
