@@ -33,7 +33,6 @@ class FormPage {
 
     cy.get('#currentAddress').type(user.address)
 
-    // Seletores gerados pelo React - podem mudar entre versões do demoqa
     cy.get('#state').click()
     cy.get('#react-select-3-option-0').click()
     cy.get('#city').click()

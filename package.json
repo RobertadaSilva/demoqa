@@ -8,11 +8,15 @@
   },
   "author": "Roberta da Silva",
   "license": "ISC",
-  "keywords": ["cypress", "cucumber"],
+  "keywords": [
+    "cypress",
+    "cucumber"
+  ],
   "cypress-cucumber-preprocessor": {
     "stepDefinitions": "cypress/e2e/**/step_definitions/*.js"
   },
   "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.3.1",
     "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.2",
     "@faker-js/faker": "^10.4.0",

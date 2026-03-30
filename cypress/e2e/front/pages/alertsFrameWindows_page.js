@@ -7,7 +7,6 @@ class AlertsFrameWindowsPage {
     cy.get('.text-center').should('have.text', 'Browser Windows')
   }
 
-  // Intercepta o window.open e clica no botão New Window
   clickNewWindow() {
     cy.window().then((win) => {
       cy.stub(win, 'open').as('newWindow')

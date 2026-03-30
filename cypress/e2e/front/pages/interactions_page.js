@@ -1,42 +1,26 @@
 class InteractionsPage {
   expectedOrder = ['One', 'Two', 'Three', 'Four', 'Five', 'Six']
+  selector = '.vertical-list-container .list-group-item'
 
   visit() {
     cy.visit("/sortable")
   }
 
-  getListItems() {
-    return cy.get('.vertical-list-container .list-group-item')
-  }
-
-  // Ordena arrastando cada item pra posição correta
   sortAscending() {
     this.expectedOrder.forEach((itemText, targetIdx) => {
-      this.getListItems().then(($items) => {
-        const currentTexts = [...$items].map(el => el.innerText.trim())
-        const sourceIdx = currentTexts.indexOf(itemText)
-        if (sourceIdx !== targetIdx && sourceIdx !== -1) {
-          this.dragItem(sourceIdx, targetIdx)
+      cy.get(this.selector).then(($items) => {
+        const currentIdx = [...$items].findIndex(el => el.innerText.trim() === itemText)
+        if (currentIdx !== targetIdx) {
+          cy.get(this.selector).eq(currentIdx).drag(`${this.selector}:nth-child(${targetIdx + 1})`)
         }
-      });
-    });
+      })
+    })
   }
 
-  // Arrasta item de uma posição pra outra usando dataTransfer
-  dragItem(fromIndex, toIndex) {
-    const dataTransfer = new DataTransfer()
-    this.getListItems().eq(fromIndex)
-      .trigger('dragstart', { dataTransfer, force: true })
-    this.getListItems().eq(toIndex)
-      .trigger('drop', { dataTransfer, force: true })
-      .trigger('dragend', { dataTransfer, force: true })
-  }
-
-  // Verifica que os itens estão na ordem crescente
   assertAscendingOrder() {
-    this.getListItems().each(($item, index) => {
-      cy.wrap($item).should('have.text', this.expectedOrder[index])
-    });
+    this.expectedOrder.forEach((text, i) => {
+      cy.get(this.selector).eq(i).should('have.text', text)
+    })
   }
 }
 

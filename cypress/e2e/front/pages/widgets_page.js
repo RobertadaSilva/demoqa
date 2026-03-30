@@ -32,7 +32,7 @@ class WidgetsPage {
   // Aguarda a progress bar chegar a 100%
   waitUntilComplete() {
     cy.get('[role="progressbar"]', { timeout: 20000 })
-      .should("have.attr", "aria-valuenow", "100");
+      .should("have.attr", "aria-valuenow", "100")
   }
 
   clickReset() {
