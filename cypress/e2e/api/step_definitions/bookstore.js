@@ -11,7 +11,7 @@ const user = {
   password: "Test@12345",
 };
 
-Given("que eu crio um novo usuário", () => {
+Given("que eu crie um novo usuário", () => {
   accountService.createUser(user).then((res) => {
     expect(res.status).to.eq(201)
     userId = res.body.userID
