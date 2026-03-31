@@ -13,7 +13,7 @@ Projeto de automação de testes end-to-end e API para o site DemoQA (https://de
 
 ## Instalação
 ```bash
-git clone <url-do-repositorio>
+git clone <https://github.com/RobertadaSilva/demoqa.git>
 cd demoQa
 npm install
 ```
